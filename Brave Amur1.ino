@@ -1,36 +1,75 @@
-byte LED[]={4,5,8,9,10,11,12,13},x=0;
-
-void setup()
+const byte startPin = 4;
+const byte endPin = 13;
+void setup() 
 {
-	for (byte i = 0; i<= 7; i++) 
+     for (byte i = startPin; i<= endPin; i++) 
     {
-      pinMode(LED[i], OUTPUT);
+        pinMode(i, OUTPUT);
     }
 }
-
 void loop()
 {
-  byte i;
-  for(i=0;i<=7;i++)
-  {
-    digitalWrite(LED[i],LOW);
-  }
-  digitalWrite(LED[x++],HIGH);
-  delay(200);
+    byte i;
   
-  if (x==8) 
-  {
-    x-=1;
-    while(x!=0)
+    for (i=startPin; i<= endPin; i++) 
     {
-    for(i=0;i<=8;i++)
+         digitalWrite(i, LOW);
+    }
+  delay(1000);
+    for (i=startPin; i<= endPin; i++) 
     {
-      digitalWrite(LED[i],LOW);
+         digitalWrite(i, HIGH);
     }
-      digitalWrite(LED[x--],HIGH);
-      delay(200);
+   delay(1000);
+  for (i=startPin; i<= endPin; i++) 
+    {
+         digitalWrite(i, LOW);
     }
-  }
+  delay(1000);
+  for (i=startPin; i<= endPin; i++) 
+    {
+         digitalWrite(i, HIGH);
+    }
+   delay(1000);
+  //亮滅兩次
+  
+  
+    for (i=startPin; i<= endPin; i++) 
+    {
+         digitalWrite(i, LOW);
+         delay (100);
+         digitalWrite(i,HIGH);
+         delay (100);
+    }//右到左
+  
+      for (i=startPin; i<= endPin; i++) 
+    {
+         digitalWrite(i, LOW);
+    }
+      delay(1000);
+      for (i=startPin; i<= endPin; i++) 
+    {
+         digitalWrite(i, HIGH);
+    }
+      delay(1000);
+      for (i=startPin; i<= endPin; i++) 
+    {
+         digitalWrite(i, LOW);
+    }
+      delay(1000);
+      for (i=startPin; i<= endPin; i++) 
+    {
+         digitalWrite(i, HIGH);
+    }
+      delay(1000);
+  //亮滅兩次
+  
+  
+    for (i=endPin; i>= startPin; i--) 
+    {
+         digitalWrite(i, LOW);
+         delay (100);
+         digitalWrite(i, HIGH);
+         delay (100);
+    }//左到右
 }
-
-
